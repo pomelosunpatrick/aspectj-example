@@ -13,11 +13,11 @@ public class AccountAspect {
 
     @Before("callUtilMethod()")
     public void beforeCallUtilMethod(JoinPoint joinPoint) {
-        System.out.println("[Before] withdraw" + joinPoint.getSignature());
+        System.out.println("[Before] calling " + joinPoint.getSignature());
     }
 
     @After("callUtilMethod()")
     public void afterCallUtilMethod(JoinPoint joinPoint) {
-        System.out.println("[After] withdraw" + joinPoint.getSignature());
+        System.out.println("[After] calling " + joinPoint.getSignature());
     }
 }
