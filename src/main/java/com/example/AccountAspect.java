@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class AccountAspect {
-    @Pointcut("@within(com.example.UtilMethod) && execution(* com.example.Account.*(..))")
+    @Pointcut("@annotation(com.example.UtilMethod)")
     public void callUtilMethod() {}
 
     @Before("callUtilMethod()")
