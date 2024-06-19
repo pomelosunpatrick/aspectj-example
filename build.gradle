@@ -20,6 +20,6 @@ compileJava {
     options.compilerArgs += ['-Xlint:unchecked', '-Xlint:deprecation']
 }
 
-tasks.withType(JavaExec) {
+tasks.withType(JavaExec).configureEach {
     jvmArgs += "-javaagent:${configurations.runtimeClasspath.find { it.name.contains('aspectjweaver') }}"
 }
