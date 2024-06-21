@@ -8,7 +8,10 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class AccountAspect {
-    @Pointcut("@annotation(com.example.UtilMethod)")
+    // NOTE: the condition 'execution(* *(..))' is necessary otherwise the actions will be executed twice
+    // 1. Once for the JointPoint where the call is made (caller)
+    // 2. Once for the JointPoint where the called method is actually executed (callee)
+    @Pointcut("@annotation(com.example.UtilMethod) && execution(* *(..))")
     public void callUtilMethod() {}
 
     @Before("callUtilMethod()")
